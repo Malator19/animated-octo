@@ -67,6 +67,11 @@ Player.prototype.move = function () {
         this.graphic.position.z
     );
 
+    if (this.position.x === ennemy.graphic.position.x && this.position.y === ennemy.graphic.position.y)
+        this.life -= 1;
+    if (this.life === 0)
+        player1.dead()
+
     this.position = moveTo;
 
     if (this.speed > 0) {
@@ -75,11 +80,15 @@ Player.prototype.move = function () {
     else if (this.speed < 0) {
         this.speed = this.speed + 0.04;
     }
-
     this.graphic.position.x = this.position.x;
     this.graphic.position.y = this.position.y;
     
     light1.position.x = this.position.x;
     light1.position.y = this.position.y;
+
+    console.log("ennemy position x : " + ennemy.graphic.position.x)
+    console.log("ennemy position y : " + ennemy.graphic.position.y)
+    console.log("this.position.x : " + this.position.x)
+    console.log("this.position.y : " + this.position.y)
     //light1.position.z = this.graphic.position.z + 500;
 };
