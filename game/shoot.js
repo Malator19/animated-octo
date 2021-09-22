@@ -21,7 +21,7 @@ function shoot()
         player1.bullets.push(bullet);
         bulletTime1 = clock.getElapsedTime();
 
-        if (bullet.position.x == ennemy.position.x && bullet.position.y == ennemy.position.y)
+        if (bullet.position.x + 10 == ennemy.position.x + 5 && bullet.position.y + 10== ennemy.position.y + 5)
             scene.remove(ennemy.graphic)
     } 
 
